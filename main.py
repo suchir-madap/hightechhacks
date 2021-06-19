@@ -17,20 +17,23 @@ client = wolframalpha.Client('JPY49W-5R97J6XYAX')
 app = Flask(__name__)
 
 
-@app.route('/')
+@app.route("/")
 def index():
-    return render_template('form.html')
+    return render_template("test.html")
 
 
-@app.route('/wolframR', methods="POST")
+@app.route('/test', methods=["POST", "GET"])
 def wolframRequest():
-    question = request.form["question"]
-    res = client.query(question)
-    answer = next(res.results).text
+    if(request.method == "POST"):
+        question = request.form["question"]
+        res = client.query(question)
+        ans = next(res.results).text
+        print(ans)
+    '''
     if answer:
         return(jsonify({'answer': answer}))
-    return jsonify({'error': 'Missing answer'})
+    return jsonify({'error': 'Missing answer'})'''
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
