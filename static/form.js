@@ -4,6 +4,6 @@ $("#submitBtn").click(function(){
             question : $("#question").val()
         },
         type: 'POST',
-        url : "/wolfram_request"
+        url : "/test"
     })
 })
