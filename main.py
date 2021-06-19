@@ -1,13 +1,13 @@
-'''import wolframalpha
+#import wolframalpha
 
-client = wolframalpha.Client('JPY49W-5R97J6XYAX')
+#client = wolframalpha.Client('JPY49W-5R97J6XYAX')
 
 
-while True:
-  query = str(input("Your Question: "))
-  res = client.query(query)
-  output = next(res.results).text
-  print(output)'''
+# while True:
+#query = str(input("Your Question: "))
+#res = client.query(query)
+#output = next(res.results).text
+# print(output)"""
 
 # Video test implement flask ajax to display result
 from flask import Flask, render_template, request, jsonify
@@ -29,10 +29,12 @@ def wolframRequest():
         res = client.query(question)
         ans = next(res.results).text
         print(ans)
-    '''
-    if answer:
-        return(jsonify({'answer': answer}))
-    return jsonify({'error': 'Missing answer'})'''
+    else:
+        print("The page has been got")
+    #
+    # if answer:
+      #  return(jsonify({'answer': answer}))
+    # return jsonify({'error': 'Missing answer'})
 
 
 if __name__ == "__main__":
