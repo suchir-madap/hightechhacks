@@ -100,3 +100,22 @@ h1{
     color:#ffc107;
 
 }
+
+
+/*All the stuff below is for the learn.html page*/
+.slim{
+    margin-top: 2%;
+    margin-bottom: 2%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+#learn h5 {
+    color: #0111a1;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-bottom:2%;
+    font-family: Georgia, serif;
+
+}
