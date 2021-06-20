@@ -1,7 +1,6 @@
 
 # Video test implement flask ajax to display result
 from flask import Flask, render_template, request, jsonify
-from flask.scaffold import F
 import wolframalpha
 
 client = wolframalpha.Client('JPY49W-5R97J6XYAX')
