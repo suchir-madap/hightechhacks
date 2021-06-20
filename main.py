@@ -19,7 +19,7 @@ def index():
 def wolframRequest():
     # Gets the question from the input box.
     question = request.form["question"]
-    res = client.query(question)  # Queries the api for the answer.
+    res = client.query(question)  # Queries the api for the answer
     ans = next(res.results).text  # Gets the answer from the XML.
     # If the answer exists, return the q/a pair, else return error.
     if ans != None:

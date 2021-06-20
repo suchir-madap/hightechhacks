@@ -1,14 +1,13 @@
 
 let past_ans = []
-window.onload = function(){
+window.onload = function(){ // WHen the window loads, run the ajax function trying to get the past asnwers
     $.ajax({
         url: '/test',
         type: 'GET',
-        success: function(response){
-            console.log(response);
+        success: function(response){//If it gets a json response from flask, sends the dict to the grid.
             dict_to_grid(response);
         },
-        error: function(error){
+        error: function(error){//Arbitrary error.
             console.log(error);
         }
     });
