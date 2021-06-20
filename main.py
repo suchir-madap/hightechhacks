@@ -15,7 +15,7 @@ def index():
     return render_template("index.html")
 
 
-@app.route('/test', methods=["POST"])  # Happens when the form submits.
+@app.route('/result', methods=["POST"])  # Happens when the form submits.
 def wolframRequest():
     # Gets the question from the input box.
     question = request.form["question"]
@@ -24,12 +24,17 @@ def wolframRequest():
     # If the answer exists, return the q/a pair, else return error.
     if ans != None:
         past_ans.insert(0,  (question, ans))
-        return render_template('result.html')
+        return render_template('qresult.html')
     return jsonify({'error': 'Missing answer'})
 
 
-@app.route('/test', methods=["GET"])
-def pastAnswersRequest():
+@app.route('/questionBot', methods=["GET"])
+def loadQuestionBot():
+    return render_template('questionBot.html')
+
+
+@app.route('/result', methods=['GET'])
+def pastAnsReq():
     return jsonify(past_ans)
 
 
