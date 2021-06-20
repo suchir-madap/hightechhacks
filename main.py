@@ -14,9 +14,11 @@ past_ans = []
 def index():
     return render_template("index.html")
 
+
 @app.route("/login")
 def login():
     return render_template("login.html")
+
 
 @app.route('/result', methods=["POST"])  # Happens when the form submits.
 def wolframRequest():
@@ -39,6 +41,11 @@ def loadQuestionBot():
 @app.route('/result', methods=['GET'])
 def pastAnsReq():
     return jsonify(past_ans)
+
+
+@app.route('/index', methods=['GET'])
+def loadHomePage():
+    return render_template('index.html')
 
 
 if __name__ == "__main__":
