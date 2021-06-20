@@ -7,7 +7,7 @@ import wolframalpha
 client = wolframalpha.Client('JPY49W-5R97J6XYAX')
 app = Flask(__name__)
 global past_ans  # List of the past answers
-past_ans = []
+past_ans = [["Question", "Answer"]]
 
 
 @app.route('/')
@@ -31,7 +31,7 @@ def wolframRequest():
     ans = next(res.results).text  # Gets the answer from the XML.
     # If the answer exists, return the q/a pair, else return error.
     if ans != None:
-        past_ans.insert(0,  (question, ans))
+        past_ans.insert(1,  (question, ans))
         return render_template('qresult.html')
     return jsonify({'error': 'Missing answer'})
 
