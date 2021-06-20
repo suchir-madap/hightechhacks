@@ -19,6 +19,9 @@ def index():
 def login():
     return render_template("login.html")
 
+@app.route("/learn")
+def learn():
+    return render_template("learn.html")
 
 @app.route('/result', methods=["POST"])  # Happens when the form submits.
 def wolframRequest():
