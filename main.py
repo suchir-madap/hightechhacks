@@ -14,6 +14,9 @@ past_ans = []
 def index():
     return render_template("index.html")
 
+@app.route("/login")
+def login():
+    return render_template("login.html")
 
 @app.route('/result', methods=["POST"])  # Happens when the form submits.
 def wolframRequest():
