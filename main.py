@@ -11,10 +11,13 @@
 
 # Video test implement flask ajax to display result
 from flask import Flask, render_template, request, jsonify
+from flask.scaffold import F
 import wolframalpha
 
 client = wolframalpha.Client('JPY49W-5R97J6XYAX')
 app = Flask(__name__)
+global past_ans  # List of the past answers
+past_ans = []
 
 
 @app.route('/')
@@ -22,17 +25,21 @@ def index():
     return render_template("test.html")
 
 
-@app.route('/test/', methods=["POST"])
+@app.route('/test', methods=["POST"])  # Happens when the form submits.
 def wolframRequest():
+    # Gets the question from the input box.
     question = request.form["question"]
-    print(question)
-    res = client.query(question)
-    ans = next(res.results).text
-    print(ans)
-    print(type(ans))
-    if ans:
-        return ans
+    res = client.query(question)  # Queries the api for the answer.
+    ans = next(res.results).text  # Gets the answer from the XML.
 
+    # If the answer exists, return the q/a pair, else return error.
+    if ans != None:
+        past_ans.insert(0,  ans)
+        past_ans.insert(0,  question)
+        for i in range(0, len(past_ans)[2]):
+            ansFormat = f"{past_ans[i]}|{past_ans[i+1]}"
+
+        return render_template('result.html', answer=ansFormat)
     return jsonify({'error': 'Missing answer'})
     #
     # if answer:
