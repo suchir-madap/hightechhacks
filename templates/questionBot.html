@@ -41,7 +41,7 @@
             tr:hover{
                 color: #ffc107
             }
-            </style>
+        </style>   
     </head>
     <body>
          <!--NavBar-->
@@ -63,7 +63,7 @@
             <input type = "text" class="form-control input-lg" name = "question" placeholder ="What is your Question?" required>
             <input type='hidden' name='redirecturl' value='/result'>
             <div style="padding-top:20px;padding-bottom: 20px;">
-                <button type ="submit" class="btn btn-primary btn-lg" id = "submitBtn" style="height:60px;width:110px;background-color:#59deff;color:#6b7172">Search</button>
+                <button type ="submit" onclick = "runAsync()" " class="btn btn-primary btn-lg" id = "submitBtn" style="height:60px;width:110px;background-color:#59deff;color:#6b7172">Search</button>
             </div>
         </form>
         <table id = "grid" class="col-lg-12">

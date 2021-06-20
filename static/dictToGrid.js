@@ -1,4 +1,3 @@
-
 let past_ans = []
 window.onload = function(){ // WHen the window loads, run the ajax function trying to get the past asnwers
     $.ajax({
